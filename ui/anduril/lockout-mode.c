@@ -47,6 +47,12 @@ uint8_t lockout_state(Event event, uint16_t arg) {
         #elif defined(USE_AUX_RGB_LEDS)
             rgb_led_update(cfg.rgb_led_lockout_mode, 0);
         #endif
+        #ifdef USE_MANUAL_MEMORY
+            // Hybrid memory timer isn't handled in lockout,
+            // but we will reset it every time the light gets locked.
+            // This will also ensure that manual memory tint is used in lockout.
+            if (cfg.manual_memory) manual_memory_restore();
+        #endif
     }
 
     else if (event == EV_tick) {
@@ -65,13 +71,6 @@ uint8_t lockout_state(Event event, uint16_t arg) {
     #if defined(TICK_DURING_STANDBY) && (defined(USE_INDICATOR_LED) || defined(USE_AUX_RGB_LEDS))
     else if (event == EV_sleep_tick) {
         if (ticks_since_on < 255) ticks_since_on ++;
-        #if defined(USE_MANUAL_MEMORY) && defined(USE_MANUAL_MEMORY_TIMER)
-        // reset to manual memory level when timer expires
-        if (cfg.manual_memory &&
-                (arg >= (cfg.manual_memory_timer * SLEEP_TICKS_PER_MINUTE))) {
-            manual_memory_restore();
-        }
-        #endif  // ifdef USE_MANUAL_MEMORY_TIMER
         #if defined(USE_INDICATOR_LED)
         indicator_led_update(cfg.indicator_led_mode >> 2, arg);
         #elif defined(USE_AUX_RGB_LEDS)
@@ -90,13 +89,6 @@ uint8_t lockout_state(Event event, uint16_t arg) {
 
     // 4 clicks: exit and turn on
     else if (event == EV_4clicks) {
-        #if defined(USE_MANUAL_MEMORY) && !defined(USE_MANUAL_MEMORY_TIMER)
-        // this clause probably isn't used by any configs any more
-        // but is included just in case someone configures it this way
-        if (cfg.manual_memory)
-            set_state(steady_state, cfg.manual_memory);
-        else
-        #endif
         set_state(steady_state, memorized_level);
         return EVENT_HANDLED;
     }
