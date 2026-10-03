@@ -1,13 +1,13 @@
-# Anduril Benutzerhandbuch
+# Anduril Bedienungsanleitung
 
-Anduril ist eine Open-Source-Firmware für Taschenlampen, die unter den
-Bedingungen der GPL v3 verbreitet wird. Die Quellcodes können hier abgerufen werden:
+Anduril ist eine Open-Source-Firmware für Taschenlampen, die unter den Bedingungen
+der GPL v3 verbreitet wird. Die Quellcodes können hier abgerufen werden:
 
   - https://toykeeper.net/anduril
 
-Die obige URL leitet auf die eigentliche Projektseite weiter. Selbst wenn das Projekt
-erneut umgezogen werden muss, sollte sie weiterhin funktionieren. Seit Ende 2023
-leitet sie hierher weiter:
+Die obige URL leitet auf die eigentliche Projektseite weiter. Selbst wenn das
+Projekt erneut umgezogen werden muss, sollte sie weiterhin funktionieren. Seit
+Ende 2023 leitet sie hierher weiter:
 
   - https://github.com/ToyKeeper/anduril
 
@@ -15,15 +15,15 @@ leitet sie hierher weiter:
 ## Schnellstart
 
 Nachdem ein Akku in die Lampe eingelegt und die Teile zusammengeschraubt wurden,
-sollte die Lampe einmal kurz blinken, um zu bestätigen, dass sie Strom hat und nun
-betriebsbereit ist. Danach ist die grundlegende Bedienung einfach:
+sollte die Lampe einmal kurz blinken, um zu bestätigen, dass sie Strom hat und
+nun betriebsbereit ist. Danach ist die grundlegende Bedienung einfach:
 
   - **Klick**: Lampe ein- oder ausschalten.
   - **Gedrückt halten**: Helligkeit ändern.
   - **Loslassen und erneut gedrückt halten**: Helligkeit schnell in die andere Richtung ändern.
 
-Das ist alles, was du für die grundlegende Nutzung wissen musst, aber es stehen noch viele
-weitere Modi und Funktionen für diejenigen zur Verfügung, die mehr möchten.
+Das ist alles, was du für die grundlegende Nutzung wissen musst, aber es stehen
+noch viele weitere Modi und Funktionen für diejenigen zur Verfügung, die mehr möchten.
 
 Eine vollständige Liste der Tastenbelegungen findest du weiter unten in der
 [UI-Referenztabelle](#ui-reference-table) am Ende dieser Datei.
@@ -49,6 +49,7 @@ Die *Zahl* gibt an, wie oft die Taste gedrückt werden muss. Der *Buchstabe* gib
 ob der letzte Druck losgelassen (C) oder gedrückt gehalten werden soll (H).
 
 
+<a id="factory-reset"></a>
 ## Werksreset
 
 Wenn du den Überblick verlierst oder den Temperatursensor automatisiert kalibrieren möchtest,
@@ -71,7 +72,7 @@ aufleuchten. Halte die Taste gedrückt, bis sie die volle Leistung erreicht, um 
 durchzuführen, oder lasse die Taste frühzeitig los, um abzubrechen.
 
 Bei einigen Lampen, bei denen die Endkappen-Methode unmöglich ist, verwende `13H` aus dem
-Aus-Zustand für einen Werksreset. Wenn dies schwierig ist, versuche es wie ein Lied
+Aus-Zustand für einen Werksreset. Wenn dies schwierig ist, versuche es in Form eines Liedes
 zu zählen, um es einfacher zu machen:
 
 ```
@@ -102,13 +103,13 @@ Zu den im Simple UI verfügbaren Funktionen gehören:
   - `2H`: Wenn die Lampe an ist: Herunterrampen  
           Wenn die Lampe aus ist: Momentaner High-Modus
   - `2C`: Doppelklick, um zur / von der höchsten sicheren Stufe zu wechseln
-  - `4C`: [Einschaltsperren-Modus (Lockout)](#lockout-mode).
+  - `4C`: [Tastensperre (Lockout)](#lockout-mode).
 
 Einige andere Modi und Funktionen sind ebenfalls verfügbar.
 Wenn die Lampe aus ist, gibt es folgende Optionen:
 
   - `3C`: [Akku-Prüfmodus](#battery-check) (zeigt die Spannung einmal an und schaltet sich dann aus)
-  - `4C`: [Einschaltsperren-Modus (Lockout)](#lockout-mode)
+  - `4C`: [Tastensperre (Lockout)](#lockout-mode)
   - `10H`: Wechsel zum [Advanced UI](#advanced-ui)
   - `15C` oder mehr: [Versionsprüfung](#version-check-mode)
 
@@ -134,21 +135,25 @@ Im Advanced UI:
 
 ### Erweitertes Simple UI
 
-Bei einigen Lampen sind auf Wunsch des Herstellers zusätzliche Funktionen im Simple UI aktiviert. Dies umfasst typischerweise:
+Bei einigen Lampen sind auf Wunsch des Herstellers zusätzliche Funktionen im
+Simple UI aktiviert. Dies umfasst typischerweise:
 
-  - `Ramp -> 3C`: Stufenlose oder gestufte [Ramp-Form](#ramping--stepped-ramping-modes) umschalten.
-  - `Ramp -> 5H`: [Sonnenuntergangs-Timer](#sunset-timer).
-  - `Aus -> 7C/7H`: Das [Aux LED-Muster](#aux-leds--button-leds) ändern.
-  - `Lockout -> 7C/7H`: Das [Aux LED-Muster](#aux-leds--button-leds) ändern.
+  - `Ramping -> 3C`: Stufenlose oder gestufte [Rampenform](#ramping--stepped-ramping-modes) umschalten.
+  - `Ramping -> 5H`: [Sonnenuntergangs-Timer](#sunset-timer).
+  - `Aus -> 7C/7H`: Das [Aux-LED-Muster](#aux-leds--button-leds) ändern.
+  - `Lockout -> 7C/7H`: Das [Aux-LED-Muster](#aux-leds--button-leds) ändern.
 
-Ältere Versionen (vor 2024-08) erlaubten auch den Zugriff auf Strobe-/Stimmungsmodi, was
-gefährlich sein kann; falls du eine solche Version hast, *überlege es dir gut, bevor du Kinder damit spielen lässt*.
-Diese Modi waren nie als kindersicher gedacht und können die volle Leistung ohne thermische Regelung erreichen.
+Ältere Versionen (vor 2024-08) erlaubten auch den Zugriff auf
+Strobe-/Stimmungsmodi, was gefährlich sein kann; falls du eine solche Version
+hast, *überlege es dir gut, bevor du Kinder damit spielen lässt*.  Diese Modi
+waren nie als kindersicher gedacht und können die volle Leistung ohne
+thermische Regelung erreichen.
 
 ### Konfiguration des Simple UI
 
-Das Simple UI kann auf verschiedene Arten konfiguriert werden, jedoch nicht, während das Simple UI
-aktiv ist. Gehe also ins Advanced UI, konfiguriere die Einstellungen und kehre dann zum Simple UI zurück.
+Das Simple UI kann auf verschiedene Arten konfiguriert werden, jedoch nicht,
+während das Simple UI aktiv ist. Gehe also ins Advanced UI, konfiguriere die
+Einstellungen und kehre dann zum Simple UI zurück.
 
 Im "Aus"-Modus des [Advanced UI](#advanced-ui):
 
@@ -158,22 +163,22 @@ Zu den konfigurierbaren Optionen gehören:
 
   - Floor-Stufe (Minimum)
   - Ceiling-Stufe (Maximum)
-  - Anzahl der Stufen (beim gestuften Rampen)
+  - Anzahl der Stufen (bei gestufter Rampe)
   - Turbo-Stil
 
 Andere Optionen werden vom Advanced UI geerbt; ändere diese Optionen ganz normal,
 und sie werden für das Simple UI übernommen:
 
-  - Ramp-Stil (stufenlos / gestuft)
-  - Geschwindigkeit des stufenlosen Rampens
+  - Rampenform (stufenlos / gestuft)
+  - Geschwindigkeit des stufenlosen Rampings
   - Rampen-nach-Moon-Stil
   - Weiche Stufen (Smooth Steps)
   - Speicher-Einstellungen (Memory)
-  - Automatische Sperr-Einstellungen (Auto-Lock)
-  - Aux LEDs-Einstellungen
+  - Automatische Tastensperre Einstellungen (Auto-Lock)
+  - Aux-LEDs-Einstellungen
   - Kalibrierung der Spannung
   - Spannungsanzeige nach dem Ausschalten
-  - Niedrige und hohe Ramp-Stufen für Aux LEDs
+  - Niedrige und hohe Rampen-Stufen für Aux-LEDs
   - Einstellungen der thermischen Regelung
   - Hardwarespezifische "Misc Menu"-Einstellungen
   - Kanalmodi
@@ -181,26 +186,29 @@ und sie werden für das Simple UI übernommen:
 
 ## Advanced UI
 
-Der größte Teil der folgenden Informationen bezieht sich auf das Advanced UI. Alles, was
-oben noch nicht erwähnt wurde, ist im Simple UI gesperrt.
+Der größte Teil der folgenden Informationen bezieht sich auf das Advanced UI.
+Alles, was zuvor noch nicht erwähnt wurde, ist im Simple UI gesperrt.
 
-Um zu überprüfen, in welchem UI du dich befindest (Simple UI oder Advanced UI), rufe den Akku-Prüfmodus
-mit `3C` aus dem Aus-Zustand auf. Im Simple UI wird die Akkuspannung nur einmal angezeigt,
-im Advanced UI wird die Akkuspannung jedoch wiederholt geprüft und angezeigt.
+Um zu überprüfen, in welchem UI du dich befindest (Simple UI oder Advanced UI),
+rufe den Akku-Prüfmodus mit `3C` aus dem Aus-Zustand auf. Im Simple UI wird die
+Akkuspannung nur einmal angezeigt, im Advanced UI wird die Akkuspannung jedoch
+wiederholt geprüft und angezeigt.
 
 Um vom Advanced UI zum Simple UI zurückzukehren, gib `10C` ein, während die Lampe aus ist.
 
 
+<a id="ramping--stepped-ramping-modes"></a>
 ## Stufenlose / Gestufte Ramping-Modi
 
-Der Ramping-Modus von Anduril verwendet ein stufenloses oder gestuftes Rampen, je nachdem,
+Der Ramping-Modus von Anduril verwendet stufenlose oder gestufte Rampen, je nachdem,
 welcher Stil bevorzugt wird.
 
-Jedes Rampen hat seine eigenen Einstellungen – Floor (niedrigste Stufe), Ceiling (höchste
-Stufe), und das gestufte Rampen kann auch eine konfigurierbare Anzahl von Stufen haben.
+Jede Rampe hat ihre eigenen Einstellungen – Floor (niedrigste Stufe), Ceiling (höchste
+Stufe). Die gestufte Rampe kann auch eine konfigurierbare Anzahl von Stufen haben.
 
-Zusätzlich hat das Simple UI eigene Ramp-Einstellungen für Floor, Ceiling und die
-Anzahl der Stufen. Der stufenlose/gestufte Stil wird vom Rampen des Advanced UI geerbt.
+Zusätzlich hat das Simple UI eigene Rampen-Einstellungen für Floor, Ceiling und
+die Anzahl der Stufen. Der stufenlose/gestufte Stil wird von den Rampen des
+Advanced UI geerbt.
 
 Es gibt vier Möglichkeiten, den Ramping-Modus aufzurufen, wenn die Lampe aus ist:
 
@@ -226,12 +234,10 @@ Während die Lampe eingeschaltet ist, stehen einige Aktionen zur Verfügung:
           oder wenn sie sich bereits auf der Ceiling-Stufe befindet, geht es stattdessen nach unten.
   - `2H`: Helligkeit ändern (nach unten).
 
-  - `3C`: Zum anderen [Ramp-Stil](#ramping--stepped-ramping-modes) wechseln.
-          (stufenlos / gestuft)  
-          (oder den nächsten [Kanalmodus](#channel-modes) aktivieren,
-          wenn mehr als einer aktiviert ist)  
+  - `3C`: Zur anderen [Rampenform](#ramping--stepped-ramping-modes) wechseln. (stufenlos / gestuft)  
+          (oder den nächsten [Kanalmodus](#channel-modes) aktivieren, wenn mehr als einer aktiviert ist)  
           (in diesem Fall stattdessen `6C` zum Umschalten zwischen stufenlos / gestuft verwenden)
-  - `6C`: Zum anderen Ramp-Stil wechseln. (wenn `3C` dem nächsten Kanal zugewiesen ist)
+  - `6C`: Zur anderen Rampenform wechseln. (wenn `3C` dem nächsten Kanal zugewiesen ist)
 
   - `3H`: Momentary Turbo (wenn der aktuelle Kanal kein Tint-Ramping hat).
   - `3H`: [Tint Ramping](#channel-modes)
@@ -244,12 +250,12 @@ Während die Lampe eingeschaltet ist, stehen einige Aktionen zur Verfügung:
   - `5C`: In den [Momentary Mode](#momentary-mode) wechseln.
   - `5H`: Einen [Sonnenuntergangs-Timer](#sunset-timer) starten.
 
-  - `7H`: [Ramp-Konfigurationsmenü](#ramp-config-menu).
+  - `7H`: [Rampen-Konfigurationsmenü](#ramp-config-menu).
     - Eintrag 1: Floor-Stufe.
     - Eintrag 2: Ceiling-Stufe.
     - Eintrag 3:  
-      Gestuftes Rampen: Anzahl der Stufen. Kann 1 bis 150 sein.  
-      Stufenloses Rampen: Ramp-Geschwindigkeit.  
+      Gestufte Rampen: Anzahl der Stufen. Kann 1 bis 150 sein.  
+      Stufenlose Rampen: Ramping-Geschwindigkeit.  
         1 = Volle Geschwindigkeit, ~2,5 s von Ende zu Ende.  
         2 = Halbe Geschwindigkeit, ~5 s von Ende zu Ende.  
         3 = Drittel Geschwindigkeit, ~7,5 s.  
@@ -257,7 +263,7 @@ Während die Lampe eingeschaltet ist, stehen einige Aktionen zur Verfügung:
 
   - `10C`: Manuellen Speicher aktivieren und die aktuelle Helligkeit speichern.
            Speichert bei mehrkanaligen Lampen auch den aktuellen Kanalmodus.
-  - `10H`: Konfigurationsmenü für Ramp-Extras.
+  - `10H`: Konfigurationsmenü für Rampen-Extras.
     - Eintrag 1: Manuellen Speicher deaktivieren und zum automatischen Speicher zurückkehren.  
                  (egal, welchen Wert du bei der Aufforderung eingibst)
     - Eintrag 2: Den Timer für den manuellen Speicher konfigurieren.  
@@ -268,10 +274,10 @@ Während die Lampe eingeschaltet ist, stehen einige Aktionen zur Verfügung:
                  1: Nicht hochrampen, einfach auf Floor-Stufe bleiben.
     - Eintrag 4: Turbo-Stil des Advanced UI konfigurieren:  
                  0: Kein Turbo, nur Ceiling.  
-                 1: Anduril 1-Stil. `Ramp -> 2C` geht auf volle Leistung.  
-                 2: Anduril 2-Stil. `Ramp -> 2C` geht auf Ceiling,
+                 1: Anduril 1-Stil. `Ramping -> 2C` geht auf volle Leistung.  
+                 2: Anduril 2-Stil. `Ramping -> 2C` geht auf Ceiling,
                  oder auf volle Leistung, wenn zuvor auf Ceiling hochgerampt wurde.
-                 Dieser Wert betrifft auch den Momentary Turbo in den Ramp- und Aus-Modi.
+                 Dieser Wert betrifft auch den Momentary Turbo in den Ramping- und Aus-Modi.
     - Eintrag 5: "Smooth Steps" (weiche Stufen) konfigurieren.  
                  0: Smooth Steps deaktivieren.  
                  1: Smooth Steps aktivieren.
@@ -280,17 +286,17 @@ Der Speicher (Memory) bestimmt, auf welche Helligkeitsstufe die Lampe mit 1 Klic
 aus dem Aus-Zustand wechselt. Es stehen drei Arten von Helligkeitsspeichern zur Auswahl:
 
   - Automatisch: Verwendet immer die zuletzt gerampte Helligkeit.
-    (speichert keine Stufen, die über ein Kürzel aufgerufen wurden,
+    (speichert keine Stufen, die über einen Direktzugriff aufgerufen wurden,
     wie Turbo, `2C` für Ceiling oder `1H-aus-dem-Aus-Zustand` für Floor)
 
   - Manuell: Verwendet immer die vom Benutzer gespeicherte Helligkeit.
 
-  - Hybrid: Verwendet die automatische Speicherhelligkeit, wenn die Lampe nur
-    für kurze Zeit aus war, oder setzt auf die manuelle Speicherstufe zurück, wenn sie
-    für längere Zeit aus war.
+  - Hybrid: Verwendet die Helligkeit wie bei "automatisch", wenn die Lampe nur
+    für kurze Zeit aus war, oder setzt auf die manuelle Speicherstufe zurück,
+    wenn sie für längere Zeit aus war.
     Der Timer hierfür ist von 0 bis ~140 Minuten konfigurierbar.
 
-Eine andere Betrachtungsweise ist: Es gibt drei Stile des Speichers für die
+Eine andere Betrachtungsweise ist: Es gibt drei Speicherstile für die
 zuletzt gerampte Helligkeitsstufe...
 
   - Immer merken          (automatisch)
@@ -305,70 +311,74 @@ Um einen Speicherstil zu wählen, stelle die Konfiguration entsprechend ein:
 | manuell     | ein               | null                    |
 | hybrid      | ein               | ungleich null           |
 
-Wenn "Smooth Steps" aktiviert ist, verwendet das gestufte Rampen eine weiche Animation
-zwischen den Stufen, und beim Ein-/Ausschalten der Lampe werden die Übergänge
-ebenfalls geglättet. Wenn "Smooth Steps" ausgeschaltet ist, erfolgen diese
-Helligkeitsänderungen sofort.
+Wenn "Smooth Steps" aktiviert ist, verwendet das gestufte Ramping eine weiche
+Animation zwischen den Stufen, und beim Ein-/Ausschalten der Lampe werden die
+Übergänge ebenfalls geglättet. Wenn "Smooth Steps" ausgeschaltet ist, erfolgen
+diese Helligkeitsänderungen sofort.
 
 
+<a id="sunset-timer"></a>
 ## Sonnenuntergangs-Timer (Sunset Timer)
 
-Im Ramp-Modus oder Kerzen-Modus ist es möglich, die Lampe so einzustellen, dass sie
-sich nach einer Weile selbst ausschaltet.
+Im Ramping-Modus oder Kerzen-Modus ist es möglich, die Lampe so einzustellen,
+dass sie sich nach einer Weile selbst ausschaltet.
 
-Um den Timer zu aktivieren, gehe zur gewünschten Helligkeit und nutze dann die Aktion
-`5H`. Halte die Taste gedrückt; die Lampe sollte einmal pro Sekunde blinken.
-Jedes Blinken fügt dem Timer 5 Minuten hinzu.
+Um den Timer zu aktivieren, gehe zur gewünschten Helligkeit und nutze dann die
+Aktion `5H`. Halte die Taste gedrückt; die Lampe sollte einmal pro Sekunde
+blinken. Jedes Blinken fügt dem Timer 5 Minuten hinzu.
 
-Im Ramp-Modus dimmt sie langsam herunter, bis sie auf der niedrigsten Stufe ist, und schaltet
-sich dann aus. Im Kerzen-Modus bleibt sie bis zur letzten Minute bei der gleichen Helligkeit,
-woraufhin sie dimmt und erlischt.
+Im Ramping-Modus dimmt sie langsam herunter, bis sie auf der niedrigsten Stufe
+ist, und schaltet sich dann aus. Im Kerzen-Modus bleibt sie bis zur letzten
+Minute bei der gleichen Helligkeit, woraufhin sie dimmt und erlischt.
 
-Die Helligkeit kann geändert werden, während der Timer aktiv ist. Wenn dies
-in den letzten Minuten geschieht, hebt es den Timer wieder auf ein Minimum von 3 Minuten an.
-Wenn sie also sehr dunkel wird und du etwas mehr Zeit benötigst, kannst du ein `5H` ausführen,
-um 5 Minuten hinzuzufügen, oder einfach auf die gewünschte Helligkeit hochrampen.
+Die Helligkeit kann geändert werden, während der Timer aktiv ist. Wenn dies in
+den letzten Minuten geschieht, hebt es den Timer wieder auf ein Minimum von 3
+Minuten an.  Wenn sie also sehr dunkel wird und du etwas mehr Zeit benötigst,
+kannst du ein `5H` ausführen, um 5 Minuten hinzuzufügen, oder einfach auf die
+gewünschte Helligkeit hochrampen.
 
 
 ## Andere Modi
 
-Anduril verfügt auch über mehrere andere Modi. Um auf diese zuzugreifen, drücke die Taste
-mehr als 2 Mal, wenn die Lampe aus ist:
+Anduril verfügt auch über mehrere andere Modi. Um auf diese zuzugreifen, drücke
+die Taste mehr als 2 Mal, wenn die Lampe aus ist:
 
   - `3C`: [Blink- / Hilfsmodi](#blinky--utility-modes), beginnend mit der Akku-Prüfung.
   - `3H`: [Strobe-Modi](#strobe--mood-modes), beginnend mit dem zuletzt verwendeten Strobe.
   - `4C`: [Lockout-Modus](#lockout-mode).
   - `5C`: [Momentary Mode](#momentary-mode).
   - `6C`: [Tactical Mode](#tactical-mode).
-  - `7C` / `7H`: [Aux LED-Konfiguration](#aux-leds--button-leds).
+  - `7C` / `7H`: [Aux-LED-Konfiguration](#aux-leds--button-leds).
   - `9H`: [Misc Config-Menü](#misc-config-menu) (nur bei einigen Lampen).
   - `10H`: [Simple UI](#simple-ui)-Konfigurationsmenü.
   - `13H`: [Werksreset](#factory-reset) (bei einigen Lampen).
   - `15C` oder mehr: [Versionsprüfung](#version-check-mode).
 
 
-## Lockout-Modus (Einschaltsperre)
+<a id="lockout-mode"></a>
+## Lockout-Modus (Tastensperre)
 
-Klicke 4 Mal aus dem Aus-Zustand, um in den Lockout-Modus zu gelangen. Oder 4 Mal aus dem Ramp-Modus.
-Dadurch kann die Lampe sicher in einer Tasche, einem Rucksack oder an jedem anderen Ort getragen werden,
-an dem die Taste versehentlich gedrückt werden könnte.
+Klicke 4 Mal aus dem Aus-Zustand, um in den Lockout-Modus zu gelangen. Oder 4
+Mal aus dem Ramping-Modus.  Dadurch kann die Lampe sicher in einer Tasche, einem
+Rucksack oder an jedem anderen Ort getragen werden, an dem die Taste
+versehentlich gedrückt werden könnte.
 
-Um den Lockout-Modus zu verlassen, klicke 4 Mal. Die Lampe sollte kurz blinken und
-dann mit der gespeicherten Stufe einschalten. Oder halte den letzten Druck gedrückt, um stattdessen
-auf der Floor-Stufe einzuschalten:
+Um den Lockout-Modus zu verlassen, klicke 4 Mal. Die Lampe sollte kurz blinken
+und dann mit der gespeicherten Stufe einschalten. Oder halte den letzten Druck
+gedrückt, um stattdessen auf der Floor-Stufe einzuschalten:
 
   - `3C`: Entsperren und in den "Aus"-Modus wechseln
 
-  - `4C`: In den Ramp-Modus wechseln (gespeicherte Stufe).  
+  - `4C`: In den Ramping-Modus wechseln (gespeicherte Stufe).  
           (verwendet die manuelle Speicherstufe, falls vorhanden)
 
-  - `4H`: In den Ramp-Modus wechseln (Floor-Stufe).
+  - `4H`: In den Ramping-Modus wechseln (Floor-Stufe).
 
-  - `5C`: In den Ramp-Modus wechseln (Ceiling-Stufe).
+  - `5C`: In den Ramping-Modus wechseln (Ceiling-Stufe).
 
 Der Lockout-Modus dient auch als momentaner Moon-Modus, sodass schnelle
-Aufgaben erledigt werden können, ohne die Lampe entsperren zu müssen. Die Helligkeit im
-Lockout-Modus hat zwei Stufen:
+Aufgaben erledigt werden können, ohne die Lampe entsperren zu müssen. Die
+Helligkeit im Lockout-Modus hat zwei Stufen:
 
   - `1H`: Auf der niedrigsten Floor-Stufe leuchten.
 
@@ -387,16 +397,18 @@ Klicke dann bei der Aufforderung N-mal, um das Auto-Lock-Timeout auf N Minuten e
            Ein Wert von Null deaktiviert die Auto-Lock-Funktion.
            Um Auto-Lock auszuschalten, klicke also gar nicht.
 
-Bei Lampen, die über Aux LEDs verfügen, gibt es möglicherweise zusätzliche Funktionen:
+Bei Lampen, die über Aux-LEDs verfügen, gibt es möglicherweise zusätzliche Funktionen:
 
-  - `7C` / `7H`: Das [Aux LEDs-Muster](#aux-leds--button-leds) des Lockout-Modus ändern.
+  - `7C` / `7H`: Das [Aux-LEDs-Muster](#aux-leds--button-leds) des Lockout-Modus ändern.
 
 
+<a id="blinky--utility-modes"></a>
 ## Blink- / Hilfsmodi
 
-Klicke 3 Mal aus dem Aus-Zustand, um auf die Blink- / Hilfsmodi von Anduril zuzugreifen. Dies
-startet immer bei der Akku-Prüfung, und es kann zu anderen Blink-Modi weitergegangen
-werden, wenn das Advanced UI aktiviert ist. Die Reihenfolge ist:
+Klicke 3 Mal aus dem Aus-Zustand, um auf die Blink- / Hilfsmodi von Anduril
+zuzugreifen. Diese starten immer bei der Akku-Prüfung, und es kann zu anderen
+Blink-Modi weitergegangen werden, wenn das Advanced UI aktiviert ist. Die
+Reihenfolge ist:
 
   - [Akku-Prüfung](#battery-check).
   - [Temperatur-Prüfung](#temperature-check) (falls die Lampe einen Temperatursensor hat).
@@ -410,18 +422,19 @@ In all diesen Modi stehen einige grundlegende Aktionen zur Verfügung:
 
 Zusätzlich in den Modi Akku-Prüfung und Temperatur-Prüfung:
 
-  - `7H`: Zum Spannungs- oder Thermokonfigurationsmenü wechseln.
+  - `7H`: Zum Spannungs- oder Temperaturkonfigurationsmenü wechseln.
 
 Im Detail macht jeder Blink- / Hilfsmodus Folgendes:
 
+<a id="battery-check"></a>
 ### Akku-Prüfung:
 
-Blinkt die Akkuspannung pro Zelle aus. Voll ist 4,20 V, leer ist
-etwa 3,00 V. Die Lampe blinkt zuerst die Ganzzahl-Ziffer, macht eine Pause,
-blinkt dann die "Zehntel"-Ziffer, macht eine Pause und blinkt dann die "Hundertstel"-Ziffer
-in 0,01-V-Schritten. Für 4,16 V wären das also "4 Blinker, 1 Blinker,
-6 Blinker". Wenn sie sich im Advanced UI befindet, macht sie eine etwas längere Pause
-und wiederholt dies. Im Simple UI schaltet sie sich nach einem Durchlauf aus.
+Blinkt die Akkuspannung pro Zelle aus. Voll ist 4,20 V, leer ist etwa 3,00 V.
+Die Lampe blinkt zuerst die Ganzzahl-Ziffer, macht eine Pause, blinkt dann die
+"Zehntel"-Ziffer, macht eine Pause und blinkt dann die "Hundertstel"-Ziffer in
+0,01-V-Schritten. Für 4,16 V wären das also "4 Blinker, 1 Blinker, 6 Blinker".
+Wenn sie sich im Advanced UI befindet, macht sie eine etwas längere Pause und
+wiederholt dies. Im Simple UI schaltet sie sich nach einem Durchlauf aus.
 
 Eine "Null"-Ziffer wird durch ein sehr kurzes Blinken dargestellt.
 
@@ -452,8 +465,8 @@ um zwischen Powerbank-Host oder -Guest umzuschalten. Dies steuert, ob die Tasche
 geladen wird, wenn ein USB C-zu-C-Kabel zu einem anderen Gerät verwendet wird, oder ob das
 andere Gerät geladen wird.
 
-Bei Lampen mit mehr als einem LED-Set kann durch Drücken von `3C` während des Akku-Prüfmodus
-ausgewählt werden, welches LED-Set (welcher Kanalmodus) zum Ausblinken der Zahlen
+Bei Lampen mit mehr als einem Satz von LEDs kann durch Drücken von `3C` während des Akku-Prüfmodus
+ausgewählt werden, welcher LED-Satz (welcher Kanalmodus) zum Ausblinken der Zahlen
 verwendet wird.
 
 Das Spannungs-Konfigurationsmenü bietet folgende Einstellungen:
@@ -484,67 +497,73 @@ Das Spannungs-Konfigurationsmenü bietet folgende Einstellungen:
 
 
   3. Aux Low Ramp Level. Steuert das Verhalten der Aux-Tasten-LEDs, während die Haupt-LEDs
-     eingeschaltet sind. Unterhalb dieser Ramp-Stufe leuchten die Tasten-LEDs nicht,
+     eingeschaltet sind. Unterhalb dieser Rampen-Stufe leuchten die Tasten-LEDs nicht,
      während die Haupt-LEDs an sind. Auf oder über dieser Stufe leuchten die Tasten-LEDs mit
      "niedriger" Helligkeit. Eine Einstellung auf 0 hält die Tasten-LEDs komplett aus,
      während die Haupt-LEDs an sind.  
      Steuert auch die Helligkeit der Spannungsanzeige nach dem Ausschalten.
 
-  4. Aux High Ramp Level. Auf oder über dieser Ramp-Stufe leuchten die Tasten-LEDs mit
+  4. Aux High Ramp Level. Auf oder über dieser Rampen-Stufe leuchten die Tasten-LEDs mit
      "hoher" Helligkeit. Eine Einstellung auf 0 deaktiviert den hohen Aux-Modus der Taste,
      während die Haupt-LEDs an sind.  
      Steuert auch die Helligkeit der Spannungsanzeige nach dem Ausschalten.
 
-  5. Aux während "An". Bestimmt, welche Aux LEDs leuchten, während die Haupt-LEDs
+  5. Aux während "An". Bestimmt, welche Aux-LEDs leuchten, während die Haupt-LEDs
      eingeschaltet sind, wie etwa im Ramping-Modus:  
      0 = keine, 1 = nur einfarbige Aux, 2 = nur RGB-Aux, 3 = beide.
 
+<a id="temperature-check"></a>
 ### Temperatur-Prüfung:
 
-Blinkt die aktuelle Temperatur in Grad C aus. Diese Zahl sollte
-ziemlich nah an dem liegen, was ein echtes Thermometer anzeigt. Wenn nicht,
-wäre es eine gute Idee, das Thermokonfigurationsmenü aufzurufen und den Sensor
-zu kalibrieren. Oder lasse die Lampe auf Raumtemperatur abkühlen und nutze
-den Werksreset, um den Sensor automatisch zu kalibrieren.
+Blinkt die aktuelle Temperatur in Grad C aus. Diese Zahl sollte ziemlich nah an
+dem liegen, was ein echtes Thermometer anzeigt. Wenn nicht, wäre es eine gute
+Idee, das Temperaturkonfigurationsmenü aufzurufen und den Sensor zu
+kalibrieren. Oder lasse die Lampe auf Raumtemperatur abkühlen und nutze den
+Werksreset, um den Sensor automatisch zu kalibrieren.
 
-Das Thermokonfigurationsmenü hat zwei Einstellungen:
+Das Temperaturkonfigurationsmenü hat zwei Einstellungen:
 
   - Aktuelle Temperatur. Klicke einmal pro Grad C, um den Sensor zu kalibrieren.
     Wenn die Umgebungstemperatur beispielsweise 21 °C beträgt, klicke 21-mal.
 
   - Temperaturlimit. Dies legt die maximale Temperatur fest, die die Lampe
-    erreichen kann, bevor sie mit der thermischen Regelung beginnt, um ein Überhitzen zu verhindern.
-    Klicke einmal pro Grad C über 30. Um das Limit beispielsweise auf 50 °C einzustellen,
-    klicke 20-mal. Der Standardwert ist 45 °C, und der höchste zulässige Wert ist 70 °C.
+    erreichen kann, bevor sie mit der thermischen Regelung beginnt, um ein
+    Überhitzen zu verhindern. Klicke einmal pro Grad C über 30. Um das Limit
+    beispielsweise auf 50 °C einzustellen, klicke 20-mal. Der Standardwert ist
+    45 °C, und der höchste zulässige Wert ist 70 °C.
 
-### Baken-Modus (Beacon):
+<a id="beacon-mode"></a>
+### Leuchtfeuer-Modus (Beacon):
 
 Blinkt mit langsamer Geschwindigkeit. Die Lampe bleibt für 100 ms eingeschaltet und
 bleibt dann bis zum nächsten Blinken ausgeschaltet. Die Helligkeit und die Anzahl der
 Sekunden zwischen den Impulsen sind konfigurierbar:
 
-  - Die Helligkeit entspricht der gespeicherten Ramp-Stufe, stelle diese also vor dem
-    Aktivieren des Baken-Modus im Ramping-Modus ein. Folgt denselben
+  - Die Helligkeit entspricht der gespeicherten Rampen-Stufe, stelle diese also
+    vor dem Aktivieren des Beacon-Modus im Ramping-Modus ein. Folgt denselben
     Speicherregeln wie das Rampen – automatisch, manuell oder hybrid.
 
-  - Die Geschwindigkeit wird durch Gedrückthalten der Taste konfiguriert. Die Lampe sollte
-    während des Gedrückthaltens einmal pro Sekunde blinken. Lasse sie
-    nach Verstreichen der gewünschten Zeitspanne los, um eine neue Baken-Geschwindigkeit
-    einzustellen.  
-    Um beispielsweise eine 10-Sekunden-Alpinbake einzustellen, halte die Taste 10 Sekunden lang gedrückt.
+  - Die Geschwindigkeit wird durch Gedrückthalten der Taste konfiguriert. Die
+    Lampe sollte während des Gedrückthaltens einmal pro Sekunde blinken. Lasse
+    sie nach Verstreichen der gewünschten Zeitspanne los, um eine neue
+    Beacon-Geschwindigkeit einzustellen.  
+    Um beispielsweise eine 10-Sekunden-Alpin-Notsignal einzustellen, halte die
+    Taste 10 Sekunden lang gedrückt.
 
-Wenn "Smooth Steps" aktiviert ist, rampt die Bake schnell hoch und blendet dann
-allmählich aus. Dies simuliert das Verhalten einer analogen Glühbirne,
-die Zeit zum Aufheizen und Abkühlen benötigt.
+Wenn "Smooth Steps" aktiviert ist, rampt das Blinksignal schnell hoch und
+blendet dann allmählich aus. Dies simuliert das Verhalten einer analogen
+Glühbirne, die Zeit zum Aufheizen und Abkühlen benötigt.
 
+<a id="sos-mode"></a>
 ### SOS-Modus:
 
 Blinkt ein Notsignal aus. Drei kurz, drei lang, drei kurz.
 Wiederholt sich, bis die Lampe ausgeschaltet wird oder der Akku fast leer ist.
 
-Die gespeicherte Ramp-Stufe bestimmt die Helligkeit des SOS-Modus.
+Die gespeicherte Rampen-Stufe bestimmt die Helligkeit des SOS-Modus.
 
 
+<a id="strobe--mood-modes"></a>
 ## Strobe- / Stimmungsmodi
 
 Anduril enthält einige zusätzliche Modi für verschiedene Zwecke:
@@ -555,9 +574,10 @@ Anduril enthält einige zusätzliche Modi für verschiedene Zwecke:
   - Tactical Strobe
   - Gewitter-Modus (Lightning storm)
 
-Klicke 3 Mal aus dem Aus-Zustand, um auf diese zuzugreifen, aber halte den dritten Klick einen
-Moment lang gedrückt. Klick, Klick, gedrückt halten. Der zuletzt verwendete Strobe-Modus wird gespeichert,
-sodass die Lampe zu dem Modus zurückkehrt, den du zuletzt verwendet hast.
+Klicke 3 Mal aus dem Aus-Zustand, um auf diese zuzugreifen, aber halte den
+dritten Klick einen Moment lang gedrückt. Klick, Klick, gedrückt halten. Der
+zuletzt verwendete Strobe-Modus wird gespeichert, sodass die Lampe zu dem Modus
+zurückkehrt, den du zuletzt verwendet hast.
 
 In all diesen Modi stehen einige Aktionen zur Verfügung:
 
@@ -608,7 +628,7 @@ Im Detail macht jeder Modus Folgendes:
 
   - Gewitter-Modus
 
-    Blitzt mit zufälliger Helligkeit und zufälliger Geschwindigkeit, um Blitzeinschläge
+    Blitzt mit zufälliger Helligkeit und zufälliger Geschwindigkeit, um Blitze
     während eines starken Gewitters zu simulieren. Schaue nicht direkt in die
     Taschenlampe, wenn dieser Modus läuft, da sie plötzlich ohne Vorwarnung auf
     volle Leistung schalten kann.
@@ -616,27 +636,29 @@ Im Detail macht jeder Modus Folgendes:
 
 ## Momentary Mode
 
-Klicke 5 Mal aus dem Aus-Zustand, um in den Momentary Mode zu gelangen. Oder 5 Mal aus dem Ramp-Modus,
-oder 5 Mal aus einem Strobe-Modus.
+Klicke 5 Mal aus dem Aus-Zustand, um in den Momentary Mode zu gelangen.
+Oder 5 Mal aus dem Ramping-Modus, oder 5 Mal aus einem Strobe-Modus.
 
-Dies sperrt die Taschenlampe in eine Einzelmodus-Bedienoberfläche, bei der die LEDs
-nur leuchten, während die Taste gedrückt gehalten wird. Dies ist für Morescodes,
-Lichtmalerei (Light Painting) und andere Aufgaben gedacht, bei denen das Licht nur für kurze Zeit
-und wahrscheinlich in einem bestimmten Muster leuchten soll.
+Dies sperrt die Taschenlampe in eine Einzelmodus-Bedienoberfläche, bei der die
+LEDs nur leuchten, während die Taste gedrückt gehalten wird. Dies ist für
+Morescodes, Lichtmalerei (Light Painting) und andere Aufgaben gedacht, bei
+denen das Licht nur für kurze Zeit und wahrscheinlich in einem bestimmten
+Muster leuchten soll.
 
-Der Momentary Mode erzeugt entweder eine gleichbleibende Helligkeitsstufe oder ein Strobe,
-je nachdem, was vor dem Wechsel in den Momentary Mode aktiv war. Um auszuwählen,
-welches Verhalten verwendet werden soll, gehe in den gewünschten Modus, passe Helligkeit, Geschwindigkeit
-und andere Einstellungen an und klicke dann 5 Mal, um den Momentary Mode aufzurufen.
+Der Momentary Mode erzeugt entweder eine gleichbleibende Helligkeitsstufe oder
+ein Strobe, je nachdem, was vor dem Wechsel in den Momentary Mode aktiv war. Um
+auszuwählen, welches Verhalten verwendet werden soll, gehe in den gewünschten
+Modus, passe Helligkeit, Geschwindigkeit und andere Einstellungen an und klicke
+dann 5 Mal, um den Momentary Mode aufzurufen.
 
-Im Dauerlicht-Modus entspricht die Helligkeit der gespeicherten Ramp-Stufe; passe diese also im
-Ramp-Modus an, bevor du den Momentary Mode aufrufst.
+Im Dauerlicht-Modus entspricht die Helligkeit der gespeicherten Rampen-Stufe;
+passe diese also im Ramping-Modus an, bevor du den Momentary Mode aufrufst.
 
 Im momentanen Strobe-Modus werden die Einstellungen aus dem zuletzt verwendeten
 Strobe-Modus übernommen, z. B. Party-Strobe, Tactical Strobe oder Gewitter.
 
-**Um den Momentary Mode zu verlassen, trenne die Stromversorgung physisch**, indem du die
-Endkappe oder das Akkurohr abschraubst.
+**Um den Momentary Mode zu verlassen, trenne die Stromversorgung physisch**,
+indem du die Endkappe oder das Akkurohr abschraubst.
 
 
 ## Tactical Mode
@@ -672,28 +694,29 @@ nach dem 1., 2. oder 3. Blinken los. Gib dann eine Zahl ein. Jeder Klick addiert
     152 = Tactical Strobe  
     153+ = andere Strobes, in derselben Reihenfolge wie in der Strobe-Gruppe bei `Aus -> 3H`
 
-Dies setzt voraus, dass die Lampe ein Ramp von 150 Stufen Länge hat. Strobe-Modi beginnen
-bei der Ramp-Größe plus 1, daher kann es abweichen, wenn eine Lampe eine
-andere Ramp-Größe hat.
+Dies setzt voraus, dass die Lampe eine Rampe von 150 Stufen Länge hat.
+Strobe-Modi beginnen bei der Rampen-Größe plus 1, daher kann es abweichen, wenn
+eine Lampe eine andere Rampen-Größe hat.
 
-Im Tactical Mode werden die Aux LEDs-Einstellungen aus dem Lockout-Modus geerbt.
+Im Tactical Mode werden die Aux-LEDs-Einstellungen aus dem Lockout-Modus geerbt.
 
 
 ## Konfigurationsmenüs
 
-Jedes Konfigurationsmenü hat dieselbe Bedienoberfläche. Es verfügt über eine oder mehrere Optionen,
-die der Benutzer konfigurieren kann, und geht diese der Reihe nach durch. Für jeden
-Menüpunkt folgt die Lampe demselben Muster:
+Jedes Konfigurationsmenü hat dieselbe Bedienoberfläche. Es verfügt über eine
+oder mehrere Optionen, die der Benutzer konfigurieren kann, und geht diese der
+Reihe nach durch. Für jeden Menüpunkt folgt die Lampe demselben Muster:
 
-  - Einmal blinken, dann auf eine niedrigere Helligkeit schalten. Du kannst die Taste
-    weiter gedrückt halten, um diesen Menüpunkt zu überspringen, oder die Taste loslassen, um
-    einzusteigen und einen neuen Wert einzugeben.
+  - Einmal blinken, dann auf eine niedrigere Helligkeit schalten. Du kannst die
+    Taste weiter gedrückt halten, um diesen Menüpunkt zu überspringen, oder die
+    Taste loslassen, um einzusteigen und einen neuen Wert einzugeben.
 
   - Wenn du die Taste losgelassen hast:
 
-    - Für einige Sekunden schnell zwischen zwei Helligkeitsstufen flackern oder "summen".
-      Dies zeigt an, dass ein- oder mehrmals geklickt werden kann, um eine Zahl einzugeben.
-      Sie summt weiter, bis nicht mehr geklickt wird, sodass keine Eile geboten ist.
+    - Für einige Sekunden schnell zwischen zwei Helligkeitsstufen flackern.
+      Dies zeigt an, dass ein- oder mehrmals geklickt werden kann, um eine Zahl
+      einzugeben.  Sie flackert weiter, bis nicht mehr geklickt wird, sodass
+      keine Eile geboten ist.
 
       Die Aktionen hierbei sind:
         - Klick: 1 hinzufügen
@@ -705,12 +728,12 @@ bis die Taste losgelassen wird, und verlässt dann das Menü. Sie sollte in den 
 zurückkehren, in dem sich die Lampe vor dem Aufrufen des Konfigurationsmenüs befand.
 
 
-## Ramp-Konfigurationsmenü
+## Rampen-Konfigurationsmenü
 
 Während die Lampe in einem Ramping-Modus eingeschaltet ist, klicke 7 Mal (halte jedoch den
-letzten Klick gedrückt), um auf das Konfigurationsmenü für das aktuelle Rampen zuzugreifen.
+letzten Klick gedrückt), um auf das Konfigurationsmenü für die aktuelle Rampe zuzugreifen.
 
-Oder stelle für den Zugriff auf die Ramp-Konfiguration des Simple UI sicher, dass das Simple UI
+Oder stelle für den Zugriff auf die Rampen-Konfiguration des Simple UI sicher, dass das Simple UI
 nicht aktiv ist, und führe dann aus dem Aus-Zustand eine `10H`-Aktion aus.
 
 Für den stufenlosen Ramping-Modus gibt es drei Menüoptionen:
@@ -719,7 +742,7 @@ Für den stufenlosen Ramping-Modus gibt es drei Menüoptionen:
      (Standard = 1/150)
   2. Ceiling.  
      (Standard = 120/150)
-  3. Ramp-Geschwindigkeit.  
+  3. Ramping-Geschwindigkeit.  
      (Standard = 1, schnellste Geschwindigkeit)
 
 Für den gestuften Ramping-Modus gibt es drei Menüoptionen:
@@ -747,7 +770,7 @@ sind dieselben wie beim gestuften Ramping-Modus.
 Zahlen sind nur Beispiele.**
 
 Um die Floor-Stufe zu konfigurieren, klicke die Taste entsprechend der Anzahl der
-Ramp-Stufen (von 150), auf der Floor liegen soll. Um die niedrigstmögliche
+Rampen-Stufen (von 150), auf der Floor liegen soll. Um die niedrigstmögliche
 Stufe einzustellen, klicke einmal.
 
 Um die Ceiling-Stufe zu konfigurieren, geht jeder Klick eine Stufe tiefer. 1 Klick
@@ -759,10 +782,11 @@ von 1 ist ein Sonderfall. Er platziert die Stufe auf der Hälfte des Weges zwisc
 und Ceiling-Stufen.
 
 
+<a id="version-check-mode"></a>
 ## Versionsprüfungs-Modus
 
-Dies ermöglicht es zu sehen, welche Firmware-Version auf der Lampe installiert ist. Das
-Format hierfür ist gewöhnlich eine Modellnummer und ein Datum.
+Dies ermöglicht es zu sehen, welche Firmware-Version auf der Lampe installiert
+ist. Das Format hierfür ist gewöhnlich eine Modellnummer und ein Datum.
 `MODEL.YYYY-MM-DD`
 
   - `MODEL`: Modellnummer  
@@ -771,8 +795,8 @@ Format hierfür ist gewöhnlich eine Modellnummer und ein Datum.
   - `MM`: Monat
   - `DD`: Tag
 
-Das Format der Versionsnummer hat sich mehrmals geändert, schreibe dir also die Versionsinformationen auf
-und vergleiche sie mit den unten stehenden Formaten.
+Das Format der Versionsnummer hat sich mehrmals geändert, schreibe dir also die
+Versionsinformationen auf und vergleiche sie mit den unten stehenden Formaten.
 
 Die Modellnummer ist beim Flashen einer neuen Firmware sehr wichtig. Stelle sicher,
 dass die neue Firmware dieselbe Modellnummer wie die alte Firmware hat. Weitere Details
@@ -787,7 +811,7 @@ Formate ausblinken:
 
   - `MODEL-YYYY-MM-DD-SINCE-DIRTY`
     Anduril 2 ab 2023-12 oder neuer. "SINCE" und "DIRTY" können weggelassen werden.
-    Satzzeichen erzeugen ein "Summen" zwischen den Abschnitten.
+    Satzzeichen erzeugen ein "Flackern" zwischen den Abschnitten.
     - `MODEL`: Modellnummer
     - `YYYY-MM-DD`: Jahr, Monat, Tag. Dies verwendet den neuesten Release-Tag
       aus Git, nicht das Erstellungsdatum (Build-Date).
@@ -824,12 +848,12 @@ Datei PRODUCTS finden, um zu sehen, welche Firmware das Modell wahrscheinlich ve
 
 ## Schutzfunktionen
 
-Anduril beinhaltet einen Niederspannungsschutz (LVP) und eine thermische Regelung.
+Anduril beinhaltet einen Unterspannungsschutz (LVP) und eine thermische Regelung.
 
-Der LVP sorgt dafür, dass die Lampe auf eine niedrigere Stufe herunterschaltet, wenn der Akku fast leer ist,
-und wenn sich die Lampe bereits auf der niedrigsten Stufe befindet, schaltet sie sich selbst aus.
-Dies aktiviert sich bei 2,8 V. LVP-Anpassungen erfolgen plötzlich in großen
-Schritten.
+Der LVP sorgt dafür, dass die Lampe auf eine niedrigere Stufe herunterschaltet,
+wenn der Akku fast leer ist, und wenn sich die Lampe bereits auf der
+niedrigsten Stufe befindet, schaltet sie sich selbst aus.  Dies aktiviert sich
+bei 2,8 V. LVP-Anpassungen erfolgen plötzlich in großen Schritten.
 
 Die thermische Regelung versucht, die Lampe vor dem Überhitzen zu bewahren, und
 passt die Leistung ansonsten so an, dass sie so nah wie möglich an dem vom Benutzer
@@ -837,31 +861,33 @@ konfigurierten Temperaturlimit bleibt. Thermische Anpassungen erfolgen schrittwe
 in so kleinen Schritten, dass sie für Menschen schwer wahrnehmbar sind.
 
 
-## Aux LEDs / Button LEDs
+<a id="aux-leds--button-leds"></a>
+## Aux-LEDs / Tasten-LEDs
 
-Einige Lampen verfügen über Aux LEDs oder Button LEDs (Tasten-LEDs). Diese können so konfiguriert werden,
-dass sie verschiedene Dinge tun, während die Haupt-LEDs ausgeschaltet sind. Es gibt einen Aux LED-Modus
-für den regulären "Aus"-Modus und einen weiteren Aux LED-Modus für den "Lockout"-Modus.
-Dadurch kann der Benutzer auf einen Blick sehen, ob die Lampe gesperrt ist.
+Einige Lampen verfügen über Aux-LEDs oder Tasten-LEDs. Diese können so
+konfiguriert werden, dass sie verschiedene Dinge tun, während die Haupt-LEDs
+ausgeschaltet sind. Es gibt einen Aux-LED-Modus für den regulären "Aus"-Modus
+und einen weiteren Aux-LED-Modus für den "Lockout"-Modus.  Dadurch kann der
+Benutzer auf einen Blick sehen, ob die Lampe gesperrt ist.
 
-Zu den Aux LED-Modi gehören typischerweise:
+Zu den Aux-LED-Modi gehören typischerweise:
 
   - Aus
   - Low (Niedrig)
   - High (Hoch)
   - Blinken
 
-Um die Aux LEDs zu konfigurieren, gehe in den Modus, den du konfigurieren möchtest, und klicke
-die Taste 7 Mal. Dies sollte die Aux LEDs in den nächsten Modus schalten, der auf
-dieser Lampe unterstützt wird.
+Um die Aux-LEDs zu konfigurieren, gehe in den Modus, den du konfigurieren
+möchtest, und klicke die Taste 7 Mal. Dies sollte die Aux-LEDs in den nächsten
+Modus schalten, der auf dieser Lampe unterstützt wird.
 
-  - `7C`: Nächster Aux LED-Modus.
+  - `7C`: Nächster Aux-LED-Modus.
 
-Wenn die Aux LEDs die Farbe ändern können, gibt es zusätzliche Aktionen zum Ändern
+Wenn die Aux-LEDs die Farbe ändern können, gibt es zusätzliche Aktionen zum Ändern
 der Farbe. Es ist dasselbe wie oben, halte jedoch die Taste beim letzten Klick
 gedrückt und lasse sie los, wenn die gewünschte Farbe erreicht ist.
 
-  - `7H`: Nächste Aux LED-Farbe.
+  - `7H`: Nächste Aux-LED-Farbe.
 
 Bei den meisten Lampen folgen die Farben dieser Reihenfolge:
 
@@ -882,42 +908,50 @@ anzeigt.
 
 ![battery charge colors](battery-rainbow.png)
 
-Bei Lampen mit einer Button LED bleibt die Tasten-LED typischerweise eingeschaltet,
-während die Haupt-LEDs an sind. Ihre Helligkeitsstufe ist auf eine Weise eingestellt, die
-die Haupt-LED spiegelt – Aus, Low oder High.
+Bei Lampen mit einer Tasten-LED bleibt die Tasten-LED typischerweise
+eingeschaltet, während die Haupt-LEDs an sind. Ihre Helligkeitsstufe ist auf
+eine Weise eingestellt, die die Haupt-LED spiegelt – Aus, Low oder High.
 
-Bei Lampen mit einer RGB Button LED zeigt die Tasten-LED während der Nutzung die
-Akkuladung auf dieselbe Weise an wie der Aux LED-Spannungsmodus.
+Bei Lampen mit einer RGB-Tasten-LED zeigt die Tasten-LED während der Nutzung die
+Akkuladung auf dieselbe Weise an wie der Aux-LED-Spannungsmodus.
 
-Bei Lampen mit nach vorne gerichteten Aux LEDs bleiben die Aux LEDs typischerweise aus,
-wenn die Haupt-LEDs an sind und wenn die Lampe ansonsten aktiv ist.
-Die Aux LEDs schalten sich bei den meisten Lampen nur ein, wenn die Lampe im Ruhemodus ist.
+Bei Lampen mit nach vorne gerichteten Aux-LEDs bleiben die Aux-LEDs
+typischerweise aus, wenn die Haupt-LEDs an sind und wenn die Lampe ansonsten
+aktiv ist.  Die Aux-LEDs schalten sich bei den meisten Lampen nur ein, wenn die
+Lampe im Ruhemodus ist.
 
-Wenn eine Lampe eine einfarbige Aux LED und kein RGB hat, blinkt sie die Aux LED in
-den "Aus"-Modi schnell, wenn die Spannung niedrig ist.
+Wenn eine Lampe eine einfarbige Aux-LED und kein RGB hat, blinkt sie die
+Aux-LED in den "Aus"-Modi schnell, wenn die Spannung niedrig ist.
 
 Bei Lampen mit einem Aux-RGB-Steuerchip kann die Helligkeit der Modi "Low" und
-"High" konfiguriert werden. Gehe dazu in den Aus-Modus, stelle das Muster
-auf "Low" oder "High" ein und nutze dann `8H`, um die Helligkeit zu ändern. Dies funktioniert nur
-auf spezifischen Modellen ab 2026, die über einen dedizierten Chip zur Steuerung
-der RGB-Aux-LEDs verfügen.
+"High" konfiguriert werden. Gehe dazu in den Aus-Modus, stelle das Muster auf
+"Low" oder "High" ein und nutze dann `8H`, um die Helligkeit zu ändern. Dies
+funktioniert nur auf spezifischen Modellen ab 2026, die über einen dedizierten
+Chip zur Steuerung der RGB-Aux-LEDs verfügen.
 
-Das Verhalten der Aux LEDs kann weiter konfiguriert werden, indem das Spannungs-Konfigurationsmenü
-innerhalb des Akku-Prüfmodus aufgerufen wird.
+Das Verhalten der Aux-LEDs kann weiter konfiguriert werden, indem das
+Spannungs-Konfigurationsmenü innerhalb des Akku-Prüfmodus aufgerufen wird.
 
 
 ## Spannungsanzeige nach dem Ausschalten (Post-Off Voltage Display / POVD)
 
-Viele Lampen mit RGB-Aux-LEDs zeigen die Akkuspannung nach dem Wechsel in den "Aus"-Modus
-für einige Sekunden durch Farben an. Dies bietet eine schnelle und einfache Möglichkeit,
-den Akkuladezustand ohne zusätzliche Tastendrücke im Auge zu behalten.
+Viele Lampen mit RGB-Aux-LEDs zeigen die Akkuspannung nach dem Wechsel in den
+"Aus"-Modus für einige Sekunden durch Farben an. Dies bietet eine schnelle und
+einfache Möglichkeit, den Akkuladezustand ohne zusätzliche Tastendrücke im Auge
+zu behalten.
 
-Das typische und vorgesehene Nutzungsmuster ist: Schalte die Lampe aus, woraufhin die Farbe
-für einige Sekunden den Akkuzustand anzeigt, und danach wechseln die Aux LEDs zu ihrem
-konfigurierten Standby-Muster (standardmäßig meist niedrige Helligkeit im Spannungsmodus). Dies erleichtert das Erkennen der Farbe, da die Farben in der Hardware entsprechend ihrer Erscheinung im High-Modus ausbalanciert sind und im Low-Modus schwerer zu unterscheiden sein können. Es dauert jedoch nur wenige Sekunden, da ein dauerhaft helles Belassen den Akku viel, viel schneller entladen würde.
+Das typische und vorgesehene Nutzungsmuster ist: Schalte die Lampe aus,
+woraufhin die Farbe für einige Sekunden den Akkuzustand anzeigt, und danach
+wechseln die Aux-LEDs zu ihrem konfigurierten Standby-Muster (standardmäßig
+meist niedrige Helligkeit im Spannungsmodus). Dies erleichtert das Erkennen der
+Farbe, da die Farben in der Hardware entsprechend ihrer Erscheinung im
+High-Modus ausbalanciert sind und im Low-Modus schwerer zu unterscheiden sein
+können. Es dauert jedoch nur wenige Sekunden, da ein dauerhaft helles Belassen
+den Akku viel, viel schneller entladen würde.
 
-Die POVD-Helligkeit wird durch deine Konfigurationseinstellungen und die vorherige Ramp-Stufe der Haupt-LEDs
-bestimmt. Es verwendet die *erste* zutreffende Bedingung:
+Die POVD-Helligkeit wird durch deine Konfigurationseinstellungen und die
+vorherige Ramping-Stufe der Haupt-LEDs bestimmt. Es verwendet die *erste*
+zutreffende Bedingung:
 
   - Wenn die Standby-Aux-Helligkeit hoch ist, verwendet POVD ebenfalls High Aux.
   - Wenn die Haupt-LEDs über dem "Aux High Ramp Level" lagen, verwendet POVD High Aux.
@@ -927,48 +961,63 @@ bestimmt. Es verwendet die *erste* zutreffende Bedingung:
 Die Aux High/Low Ramp Levels sind bei den meisten Lampen mit RGB über das
 Spannungs-Konfigurationsmenü im Akku-Prüfmodus konfigurierbar.
 
-Hinweis: Die Spannung wird während POVD kontinuierlich überwacht und aktualisiert, sodass sich die Farbe
-ändern kann. Dies passiert insbesondere beim Ausschalten aus einem High- oder Turbo-Modus,
-da die hohe Last einen starken Einbruch der Akkuspannung verursacht... und sich der Akku
-in den ersten Sekunden nach Entfernen der Last schnell erholt. Es ist normal, dass die
-Akkuspannung während und unmittelbar nach dem Turbo niedrig gemessen wird, sie sollte sich jedoch kurz darauf wieder erholen.
+Hinweis: Die Spannung wird während POVD kontinuierlich überwacht und
+aktualisiert, sodass sich die Farbe ändern kann. Dies passiert insbesondere
+beim Ausschalten aus einem High- oder Turbo-Modus, da die hohe Last einen
+starken Einbruch der Akkuspannung verursacht... und sich der Akku in den ersten
+Sekunden nach Entfernen der Last schnell erholt. Es ist normal, dass die
+Akkuspannung während und unmittelbar nach dem Turbo niedrig gemessen wird, sie
+sollte sich jedoch kurz darauf wieder erholen.
 
 
 ## Smooth POVD
 
-Einige Lampen haben die Möglichkeit, die RGB-Aux-LEDs über das bloße High/Low/Aus hinaus
-zu dimmen. Bei diesen Lampen blendet der POVD-Modus ein, zeigt die Spannung durch
-Farben mit einer viel höheren Auflösung an und blendet dann wieder aus. Die zusätzliche
-Farbauflösung wird auch verwendet, während die Haupt-LEDs an sind, wenn "RGB-Aux während An" aktiviert ist.
+Einige Lampen haben die Möglichkeit, die RGB-Aux-LEDs über das bloße
+High/Low/Aus hinaus zu dimmen. Bei diesen Lampen blendet der POVD-Modus ein,
+zeigt die Spannung durch Farben mit einer viel höheren Auflösung an und blendet
+dann wieder aus. Die zusätzliche Farbauflösung wird auch verwendet, während die
+Haupt-LEDs an sind, wenn "RGB-Aux während An" aktiviert ist.
 
-Der ursprüngliche / passive POVD-Modus hat bei normalem Gebrauch nur 6 Farben: Rot,
-Gelb, Grün, Cyan, Blau und Violett. Diese werden durch Ein- und Ausschalten der
-roten/grünen/blauen LEDs erzeugt. Smooth POVD bietet einen vollständigen Regenbogen mit
-einer unterschiedlichen Schattierung für jeden möglichen Spannungswert. Die Farben verlaufen
-in derselben Reihenfolge und zeigen dieselben Spannungsbereiche an, aber anstelle von 6 Hauptschattierungen
-gibt es eher 60 Schattierungen. (von 3,00 V bis 4,20 V in 0,02-V-Schritten ergibt das ~60 verschiedene Farben) Nach einer gewissen Eingewöhnung kann der Benutzer die Akkuspannung daher allein anhand der Farbe, die der POVD-Modus anzeigt, auf 0,02 V oder 0,04 V genau bestimmen.
+Der ursprüngliche / passive POVD-Modus hat bei normalem Gebrauch nur 6 Farben:
+Rot, Gelb, Grün, Cyan, Blau und Violett. Diese werden durch Ein- und
+Ausschalten der roten/grünen/blauen LEDs erzeugt. Smooth POVD bietet einen
+vollständigen Regenbogen mit einer unterschiedlichen Schattierung für jeden
+möglichen Spannungswert. Die Farben verlaufen in derselben Reihenfolge und
+zeigen dieselben Spannungsbereiche an, aber anstelle von 6 Hauptschattierungen
+gibt es eher 60 Schattierungen. (von 3,00 V bis 4,20 V in 0,02-V-Schritten
+ergibt das ~60 verschiedene Farben) Nach einer gewissen Eingewöhnung kann der
+Benutzer die Akkuspannung daher allein anhand der Farbe, die der POVD-Modus
+anzeigt, auf 0,02 V oder 0,04 V genau bestimmen.
 
-Nachdem die Haupt-POVD-Anzeige endet, nehmen die Aux LEDs ihren konfigurierten
-Standby-Modus wieder auf und können bei Lampen mit passiven Aux LEDs die Farbe ändern,
-wenn der "Spannungs"-Modus verwendet wird. Typischerweise pendelt es sich auf die nächstgelegene der 6 Hauptschattierungen ein, dies hängt jedoch vom exakten Hardwaremodell ab. Es hängt davon ab, ob die Hardware das RGB-PWM über den Haupt-MCU-Chip erzeugt oder ob sie einen externen Aux-Steuerchip besitzt.
+Nachdem die Haupt-POVD-Anzeige endet, nehmen die Aux-LEDs ihren konfigurierten
+Standby-Modus wieder auf und können bei Lampen mit passiven Aux-LEDs die Farbe
+ändern, wenn der "Spannungs"-Modus verwendet wird. Typischerweise pendelt es
+sich auf die nächstgelegene der 6 Hauptschattierungen ein, dies hängt jedoch
+vom exakten Hardwaremodell ab. Es hängt davon ab, ob die Hardware das RGB-PWM
+über den Haupt-MCU-Chip erzeugt oder ob sie einen externen Aux-Steuerchip
+besitzt.
 
-Die Helligkeit des Smooth POVD-Modus verwendet dieselbe Konfiguration wie der reguläre
-POVD-Modus. Das "Aux Low Ramp Level" und das "Aux High Ramp Level" funktionieren größtenteils genauso,
-außer dass die Helligkeit zwischen den beiden stufenlos übergeht. Derselbe Helligkeitsverlauf
-gilt in diesem Bereich während der regulären "An"-Modi, falls aktiviert.
+Die Helligkeit des Smooth POVD-Modus verwendet dieselbe Konfiguration wie der
+reguläre POVD-Modus. Das "Aux Low Ramp Level" und das "Aux High Ramp Level"
+funktionieren größtenteils genauso, außer dass die Helligkeit zwischen den
+beiden stufenlos übergeht. Derselbe Helligkeitsverlauf gilt in diesem Bereich
+während der regulären "An"-Modi, falls aktiviert.
 
-Bei einigen Modellen kann die POVD-Helligkeit weiter angepasst werden. Rufen Sie dazu den
-"Batt Color"-Modus auf und nutze dann `8H`. Dies stellt die Spitzenhelligkeit für POVD ein.
+Bei einigen Modellen kann die POVD-Helligkeit weiter angepasst werden. Rufe
+dazu den "Batt Color"-Modus auf und nutze dann `8H`. Dies stellt die
+Spitzenhelligkeit für POVD ein.
 
 
+<a id="misc-config-menu"></a>
 ## Misc Config-Menü (Sonstiges-Konfigurationsmenü)
 
-Einige Modelle verfügen möglicherweise über ein zusätzliches Konfigurationsmenü für Einstellungen, die anderswo
-nicht hineinpassen. Dieses Menü befindet sich im Advanced UI unter "Aus -> 9H".
+Einige Modelle verfügen möglicherweise über ein zusätzliches Konfigurationsmenü
+für Einstellungen, die anderswo nicht hineinpassen. Dieses Menü befindet sich
+im Advanced UI unter "Aus -> 9H".
 
 Diese Einstellungen sind in folgender Reihenfolge:
 
-  - Tint Ramp-Stil: (bei einigen Lampen)  
+  - Tint Rampenform: (bei einigen Lampen)  
     0 : Stufenloses Rampen (Kanäle in beliebiger Proportion mischen)  
     1 : Nur mittlerer Tint  
     2 : Nur extreme Tints (nur ein Kanal gleichzeitig aktiv)  
@@ -976,10 +1025,11 @@ Diese Einstellungen sind in folgender Reihenfolge:
 
   - Jump Start-Stufe: (bei einigen Lampen)
 
-    Einige Lampen neigen dazu, auf niedrigen Stufen langsam zu starten; daher bieten sie
-    die Option zum "Jump Start" der Elektronik, indem beim Wechsel von Aus auf eine
-    niedrige Stufe für einige Millisekunden ein höherer Leistungsimpuls abgegeben wird.
-    Diese Einstellung legt fest, wie hell dieser Impuls sein soll.
+    Einige Lampen neigen dazu, auf niedrigen Stufen langsam zu starten; daher
+    bieten sie die Option zum "Jump Start" der Elektronik, indem beim Wechsel
+    von Aus auf eine niedrige Stufe für einige Millisekunden ein höherer
+    Leistungsimpuls abgegeben wird. Diese Einstellung legt fest, wie hell
+    dieser Impuls sein soll.
 
     Der Wert kann von 1 bis 150 reichen, liegt jedoch normalerweise zwischen 20 und 50.
 
@@ -991,21 +1041,21 @@ Hardwaremodell und der Firmware-Version ab.
 <a id="channel-modes"></a>
 ## Kanalmodi (auch bekannt als Tint Ramping oder Multi-Channel-Steuerung)
 
-Einige Lampen verfügen über mehr als ein Set von LEDs, die angepasst werden können, um
-Lichtfarbe, Strahlform oder andere Eigenschaften zu verändern. Diese Lampen bieten
-Funktionen wie Tint Ramping und Kanalmodi.
+Einige Lampen verfügen über mehr als einen Satz von LEDs, die angepasst werden
+können, um Lichtfarbe, Strahlform oder andere Eigenschaften zu verändern. Diese
+Lampen bieten Funktionen wie Tint Ramping und Kanalmodi.
 
 Bei diesen Modellen gibt es einige globale Tastenbelegungen, die jederzeit funktionieren,
 sofern sie nicht durch den Modus, in dem sich die Lampe befindet, überschrieben werden:
 
   - `3C`: Nächster Kanalmodus
-  - `3H`: Aktuellen Kanalmodus anpassen (z. B. Tint rampen)
+  - `3H`: Aktuellen Kanalmodus anpassen (z. B. Tint Ramping)
   - `8H`: Aux-RGB-Helligkeit anpassen (nur Aux-Kanäle, auf spezifischer Hardware)
   - `9H`: Kanalmodus-Konfigurationsmenü
 
-Die Details hängen vom exakten Typ der verwendeten Lampe ab. Wenn eine Lampe beispielsweise
-über LEDs in Kaltweiß, Warmweiß und Rot verfügt... könnte diese Lampe über einige
-Kanalmodi verfügen:
+Die Details hängen vom exakten Typ der verwendeten Lampe ab. Wenn eine Lampe
+beispielsweise über LEDs in Kaltweiß, Warmweiß und Rot verfügt... könnte diese
+Lampe über einige Kanalmodi verfügen:
 
   - Weiß-Mischung (einstellbare CCT / Tint Ramping)
   - Nur Rot
@@ -1017,27 +1067,28 @@ Kanalmodi zu rotieren... Weiß, dann Rot, dann Auto, dann zurück zu Weiß.
 Zusätzlich könnte der Benutzer im "Weiß-Mischung"-Modus 3H drücken, um
 die Balance zwischen Warmweiß und Kaltweiß manuell anzupassen.
 
-Wenn der Benutzer schließlich entscheidet, dass er nicht alle Modi möchte, kann er
-einige ausschalten. Drücke `9H` (während die Lampe an ist), um das Kanalmodus-
-Konfigurationsmenü zu starten. Um beispielsweise den Auto-Tint-Modus zu deaktivieren – dies ist
-der 3. Modus –, warte auf das 3. Blinken und lasse dann die Taste los. Gib dann bei der
-Aufforderung den Wert 0 ein (warte, bis die Aufforderung abläuft, ohne etwas anzuklicken).
-Danach sollte sich der Auto-Tint-Modus nicht mehr in der Kanalmodus-Rotation
-befinden. Um den Modus später wieder einzuschalten, gehe genauso vor, gib jedoch
-einen Wert von 1 ein (klicke 1-mal bei der Aufforderung).
+Wenn der Benutzer schließlich entscheidet, dass er nicht alle Modi möchte, kann
+er einige ausschalten. Drücke `9H` (während die Lampe an ist), um das
+Kanalmodus-Konfigurationsmenü zu starten. Um beispielsweise den
+Auto-Tint-Modus zu deaktivieren – dies ist der 3. Modus –, warte auf das 3.
+Blinken und lasse dann die Taste los. Gib dann bei der Aufforderung den Wert 0
+ein (warte, bis die Aufforderung abläuft, ohne etwas anzuklicken). Danach
+sollte sich der Auto-Tint-Modus nicht mehr in der Kanalmodus-Rotation befinden.
+Um den Modus später wieder einzuschalten, gehe genauso vor, gib jedoch einen
+Wert von 1 ein (klicke 1-mal bei der Aufforderung).
 
 Eine Lampe kann viele verschiedene Kanalmodi haben; scheue dich also nicht,
 Modi auszuschalten, die du nicht verwendest. Das macht alle anderen einfacher zu
 erreichen.
 
 Wenn du Kanalmodi ausschaltest, bis nur noch 1 übrig bleibt, schaltet die Aktion
-`Ramp -> 3C` auf ihr Einkanal-Verhalten zurück – das Umschalten zwischen einem
-stufenlosen oder gestuften Helligkeits-Rampen. Wenn ein Kanalmodus
-nichts hat, was mit `3H` angepasst werden könnte, kehrt die Aktion `3H` ebenfalls zu ihrem
+`Ramping -> 3C` auf ihr Einkanal-Verhalten zurück – das Umschalten zwischen einer
+stufenlosen oder gestuften Helligkeits-Rampe. Wenn ein Kanalmodus nichts hat,
+was mit `3H` angepasst werden könnte, kehrt die Aktion `3H` ebenfalls zu ihrem
 Einkanal-Verhalten zurück – dem Momentary Turbo.
 
 Das [Misc Config-Menü](#misc-config-menu) (`Aus -> 9H`) bietet möglicherweise auch
-eine Einstellung zur Auswahl eines Tint Ramp-Stils. Es stehen verschiedene Stile
+eine Einstellung zur Auswahl einer Tint Rampenform. Es stehen verschiedene Stile
 zur Verfügung, indem unterschiedliche Zahlen in dieses Konfigurationsmenü eingegeben werden:
 
   0: Stufenloses Rampen  
@@ -1049,26 +1100,30 @@ Diese Einstellung gilt nur für Modi mit Kanal-Rampen (d. h. Tint Ramping)
 und nur dann, wenn dieser Modus den Standard-Event-Handler für `3H` verwendet.
 Benutzerdefinierte Kanalmodi können anders funktionieren.
 
-Bei Lampen mit Kanalmodi speichert der manuelle Speicher (`Ramp -> 10C`) die
+Bei Lampen mit Kanalmodi speichert der manuelle Speicher (`Ramping -> 10C`) die
 aktuelle Helligkeit *und* den Kanalmodus.
 
 Bei Lampen mit einem Aux-RGB-Steuerchip kann die Helligkeit der Aux-RGB-Modi
-konfiguriert werden. Gehe dazu in einen Modus wie Ramp oder Strobe, aktiviere einen Aux-
-Kanalmodus und nutze dann `8H`, um die Helligkeit zu ändern. Dies funktioniert nur auf
-spezifischen Modellen ab 2026, die über einen dedizierten Chip zur Steuerung
-der RGB-Aux-LEDs verfügen.
+konfiguriert werden. Gehe dazu in einen Modus wie Ramping oder Strobe,
+aktiviere einen Aux- Kanalmodus und nutze dann `8H`, um die Helligkeit zu
+ändern. Dies funktioniert nur auf spezifischen Modellen ab 2026, die über einen
+dedizierten Chip zur Steuerung der RGB-Aux-LEDs verfügen.
 
 
 ## FAQ
 
-  - F: Warum schalten sich die Aux LEDs immer ein, wenn ich die Lampe ausschalte, unabhängig von den Aux-Einstellungen?
-  - A: Dies ist die Funktion zur Spannungsanzeige nach dem Ausschalten (Post-Off Voltage Display). Sie kann im [Akku-Prüfmodus](#battery-check) konfiguriert oder deaktiviert werden.
+  - F: Warum schalten sich die Aux-LEDs immer ein, wenn ich die Lampe
+    ausschalte, unabhängig von den Aux-Einstellungen?
+  - A: Dies ist die Funktion zur Spannungsanzeige nach dem Ausschalten
+    (Post-Off Voltage Display). Sie kann im [Akku-Prüfmodus](#battery-check)
+    konfiguriert oder deaktiviert werden.
 
 
   - F: Was kann ich tun, um zur Entwicklung von Anduril beizutragen?
   - A: Siehe [Contributing](https://github.com/ToyKeeper/anduril#contributing).
 
 
+<a id="ui-reference-table"></a>
 ## UI-Referenztabelle
 
 Dies ist eine Tabelle aller Tastenbelegungen in Anduril an einem Ort:
@@ -1077,9 +1132,9 @@ Dies ist eine Tabelle aller Tastenbelegungen in Anduril an einem Ort:
 
 | Modus           | UI     | Taste     | Aktion
 | :----           | :----- | -----:    | :-----
-| Aus             | Alle   | `1C`      | An (Ramp-Modus, gespeicherte Stufe)
-| Aus             | Alle   | `1H`      | An (Ramp-Modus, Floor-Stufe)
-| Aus             | Alle   | `2C`      | An (Ramp-Modus, Ceiling-Stufe)
+| Aus             | Alle   | `1C`      | An (Ramping-Modus, gespeicherte Stufe)
+| Aus             | Alle   | `1H`      | An (Ramping-Modus, Floor-Stufe)
+| Aus             | Alle   | `2C`      | An (Ramping-Modus, Ceiling-Stufe)
 | Aus             | Simple | `2H`      | An (momentane Ceiling-Stufe)
 | Aus             | Full   | `2H`      | An (Momentary Turbo)
 | Aus             | Alle   | `3C`      | Akku-Prüfmodus
@@ -1087,17 +1142,17 @@ Dies ist eine Tabelle aller Tastenbelegungen in Anduril an einem Ort:
 | Aus             | Alle   | `4C`      | Lockout-Modus
 | Aus             | Full   | `5C`      | Momentary Mode
 | Aus             | Full   | `6C`      | Tactical Mode
-| Aus             | Full   | `7C`      | Aux LEDs: Nächstes Muster
-| Aus             | Full   | `7H`      | Aux LEDs: Nächste Farbe
-| Aus             | Full   | `8H`      | Aux LEDs: Nächste Helligkeit (einige Modelle)
+| Aus             | Full   | `7C`      | Aux-LEDs: Nächstes Muster
+| Aus             | Full   | `7H`      | Aux-LEDs: Nächste Farbe
+| Aus             | Full   | `8H`      | Aux-LEDs: Nächste Helligkeit (einige Modelle)
 |                 |        |           | (zuerst Muster auf "Low" oder "High" stellen,
 |                 |        |           | um die Helligkeit dieses Musters anzupassen)
 | Aus             | Full   | `9H`      | Misc Config-Menü (variiert je nach Lampe):
-|                 |        |           | ?1: Tint Ramp-Stil
+|                 |        |           | ?1: Tint Rampenform
 |                 |        |           | ?2: Jump Start-Stufe
 | Aus             | Full   | `10C`     | Simple UI aktivieren
 | Aus             | Simple | `10H`     | Simple UI deaktivieren
-| Aus             | Full   | `10H`     | Simple UI Ramp-Konfigurationsmenü:
+| Aus             | Full   | `10H`     | Simple UI Rampen-Konfigurationsmenü:
 |                 |        |           | 1: Floor
 |                 |        |           | 2: Ceiling
 |                 |        |           | 3: Stufen
@@ -1105,28 +1160,28 @@ Dies ist eine Tabelle aller Tastenbelegungen in Anduril an einem Ort:
 | Aus             | Alle   | `13H`     | Werksreset (bei einigen Lampen)
 | Aus             | Alle   | `15+C`    | Versionsprüfung
 
-### Ramp-Modus
+### Ramping-Modus
 
 | Modus           | UI     | Taste     | Aktion
 | :----           | :----- | -----:    | :-----
-| Ramp            | Alle   | `1C`      | Aus
-| Ramp            | Alle   | `1H`      | Rampen (nach oben, mit Richtungsumkehr)
-| Ramp            | Alle   | `2H`      | Rampen (nach unten)
-| Ramp            | Alle   | `2C`      | Zu/von Ceiling oder Turbo wechseln (konfigurierbar)
-| Ramp            | Full   | `3C`      | Ramp-Stil ändern (stufenlos / gestuft)
-| Ramp            | Full   | `6C`      | (wie oben, aber bei mehrkanaligen Lampen)
-| Ramp            | Full   | `3H`      | Momentary Turbo (wenn kein Tint Ramping)
-| Ramp            | Full   | `4H`      | Momentary Turbo (bei mehrkanaligen Lampen)
-| Ramp            | Alle   | `4C`      | Lockout-Modus
-| Ramp            | Full   | `5C`      | Momentary Mode
-| Ramp            | Full   | `5H`      | Sonnenuntergangs-Timer an, und 5 Minuten hinzufügen
-| Ramp            | Full   | `7H`      | Ramp-Konfigurationsmenü: (für aktuelles Rampen)
+| Ramping         | Alle   | `1C`      | Aus
+| Ramping         | Alle   | `1H`      | Rampen (nach oben, mit Richtungsumkehr)
+| Ramping         | Alle   | `2H`      | Rampen (nach unten)
+| Ramping         | Alle   | `2C`      | Zu/von Ceiling oder Turbo wechseln (konfigurierbar)
+| Ramping         | Full   | `3C`      | Rampenform ändern (stufenlos / gestuft)
+| Ramping         | Full   | `6C`      | (wie oben, aber bei mehrkanaligen Lampen)
+| Ramping         | Full   | `3H`      | Momentary Turbo (wenn kein Tint Ramping)
+| Ramping         | Full   | `4H`      | Momentary Turbo (bei mehrkanaligen Lampen)
+| Ramping         | Alle   | `4C`      | Lockout-Modus
+| Ramping         | Full   | `5C`      | Momentary Mode
+| Ramping         | Full   | `5H`      | Sonnenuntergangs-Timer an, und 5 Minuten hinzufügen
+| Ramping         | Full   | `7H`      | Rampen-Konfigurationsmenü: (für aktuelle Rampe)
 |                 |        |           | 1: Floor
 |                 |        |           | 2: Ceiling
 |                 |        |           | 3: Geschwindigkeit / Stufen
-| Ramp            | Full   | `10C`     | Manuellen Speicher einschalten & aktuelle Helligkeit
+| Ramping         | Full   | `10C`     | Manuellen Speicher einschalten & aktuelle Helligkeit
 |                 |        |           | (und aktuellen Kanalmodus) speichern
-| Ramp            | Full   | `10H`     | Ramp-Extras-Konfigurationsmenü:
+| Ramping         | Full   | `10H`     | Rampen-Extras-Konfigurationsmenü:
 |                 |        |           | 1: zu automatischem Speich. wechseln, nicht manuell
 |                 |        |           | 2: manuelles Speich.-Timeout einstellen
 |                 |        |           | 3: nach Moon hochrampen oder nicht
@@ -1140,11 +1195,11 @@ Dies ist eine Tabelle aller Tastenbelegungen in Anduril an einem Ort:
 | Alle            | Alle   | `3C`      | Nächster Kanalmodus (d. h. nächster Farbmodus)
 | Alle            | Alle   | `3H`      | Tint rampen (falls in diesem Modus möglich)
 | Alle            | Full   | `8H`      | Aux-RGB-Helligkeit ändern (falls Hardware möglich)
-|                 |        |           | (für die "An"-Modi wie Ramp und Strobe)
+|                 |        |           | (für die "An"-Modi wie Ramping und Strobe)
 | Alle            | Full   | `9H`      | Kanalmodus Aktivieren/Deaktivieren-Menü:
 |                 |        |           | N: klicken (oder nicht), um Modus N zu aktivieren (deaktivieren)
 
-### Lockout-Modus (Einschaltsperre)
+### Lockout-Modus (Tastensperre)
 
 | Modus           | UI     | Taste     | Aktion
 | :----           | :----- | -----:    | :-----
@@ -1152,11 +1207,11 @@ Dies ist eine Tabelle aller Tastenbelegungen in Anduril an einem Ort:
 | Lockout         | Alle   | `2C`/`2H` | Momentanes Moon (höchster Floor oder manuelle Speich.-Stufe)
 | Lockout         | Alle   | `3C`      | Entsperren (in den "Aus"-Modus wechseln)
 | Lockout         | Alle   | `3H`      | Nächster Kanalmodus (falls mehr als einer aktiviert ist)
-| Lockout         | Alle   | `4C`      | An (Ramp-Modus, gespeicherte Stufe)
-| Lockout         | Alle   | `4H`      | An (Ramp-Modus, Floor-Stufe)
-| Lockout         | Alle   | `5C`      | An (Ramp-Modus, Ceiling-Stufe)
-| Lockout         | Full   | `7C`      | Aux LEDs: Nächstes Muster
-| Lockout         | Full   | `7H`      | Aux LEDs: Nächste Farbe
+| Lockout         | Alle   | `4C`      | An (Ramping-Modus, gespeicherte Stufe)
+| Lockout         | Alle   | `4H`      | An (Ramping-Modus, Floor-Stufe)
+| Lockout         | Alle   | `5C`      | An (Ramping-Modus, Ceiling-Stufe)
+| Lockout         | Full   | `7C`      | Aux-LEDs: Nächstes Muster
+| Lockout         | Full   | `7H`      | Aux-LEDs: Nächste Farbe
 | Lockout         | Full   | `10H`     | Auto-Lock-Konfigurationsmenü:
 |                 |        |           | 1: Timeout in Minuten einstellen (0 = kein Auto-Lock)
 
@@ -1171,7 +1226,7 @@ Dies ist eine Tabelle aller Tastenbelegungen in Anduril an einem Ort:
 | Strobe (jeder)  | Full   | `5C`      | Momentary Mode (mit aktuellem Strobe)
 | Party Strobe    | Full   | `1H`/`2H` | Schneller / langsamer
 | Tactical Strobe | Full   | `1H`/`2H` | Schneller / langsamer
-| Polizei Strobe  | -      | -         | Keines (Helligkeit ist die zuletzt genutzte Stufe des Ramp-Modus)
+| Polizei Strobe  | -      | -         | Keines (Helligkeit ist die zuletzt genutzte Stufe des Ramping-Modus)
 | Gewitter        | Full   | `1H`      | Aktuellen Blitz unterbrechen oder neuen starten
 | Kerze           | Full   | `1H`/`2H` | Heller / dunkler
 | Kerze           | Full   | `5H`      | Sonnenuntergangs-Timer an, 5 Minuten hinzufügen
@@ -1196,10 +1251,10 @@ Dies ist eine Tabelle aller Tastenbelegungen in Anduril an einem Ort:
 |                 |        |           | 2: Anzeige-Sekunden für Spannung nach dem Ausschalten
 |                 |        |           | 3: Aux Low Ramp Level
 |                 |        |           | ... 0: deaktiviert
-|                 |        |           | ... 1+: leuchtet ab dieser Ramp-Stufe
+|                 |        |           | ... 1+: leuchtet ab dieser Rampen-Stufe
 |                 |        |           | 4: Aux High Ramp Level
 |                 |        |           | ... 0: deaktiviert
-|                 |        |           | ... 1+: heller ab dieser Ramp-Stufe
+|                 |        |           | ... 1+: heller ab dieser Rampen-Stufe
 |                 |        |           | 5: Aux während An
 |                 |        |           | ... 0: deaktiviert
 |                 |        |           | ... 1: nur einfarbige Aux
